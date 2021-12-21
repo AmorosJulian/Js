@@ -8,6 +8,6 @@ if (nombre.toLowerCase() == "karen" && edad >= 18) {
 } else if(nombre.toLowerCase() !== "karen" ||  edad < 18 ) {
     alert("No estas autorizado para ingresar a mi desafio...")
 } else {
-    alert("No puedes ingresar, asegurate de ingresar bien los datos...")
+    alert("No puedes ingresar, asegurate de colocar bien los datos solicitados...")
 }
      
