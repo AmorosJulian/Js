@@ -1,13 +1,15 @@
+let numeros = 10;
 
-alert("Hola! este es un desafio que solo mi tutora de Js puede ver..");
-let nombre = prompt("Para corroborarlo, por favor ingresa tu nombre:");
-let edad = parseInt(prompt("Tambien necesito verificar tu edad:"));
-
-if (nombre.toLowerCase() == "karen" && edad >= 18) {
-    alert("Bienvenida " + nombre + ", este es mi desafio 2 de Js !")
-} else if(nombre.toLowerCase() !== "karen" ||  edad < 18 ) {
-    alert("No estas autorizado para ingresar a mi desafio...")
-} else {
-    alert("No puedes ingresar, asegurate de colocar bien los datos solicitados...")
+while (numeros < 10) {
+    console.log(numeros);
+    numeros++;
 }
-     
+
+for(let i = 0; i < 10; i++) {
+    console.log("En esta vuelta el numero es " + i)
+}
+
+let numeros2 = [10, 20, 30, 40, 50, 60, 70];
+for(let i = 0; i <4; i++) {
+    console.log(numeros2[i]);
+}
