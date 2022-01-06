@@ -1,74 +1,73 @@
-/*function saludar() {
-    console.log("Hola");
+/*function persona (nombre, param2, param3) {
+     this.nombre = nombre;
+     this.calle = param2;
+     this.edad = param3;
+     this.hablar = function() { console.log("Hola, soy " + this.nombre + " y tengo " + this.edad + " años.") }
+ }
+
+ const persona1 = new persona ("Julian", "Bustamante 2095", 26);
+ const persona2 = new persona ("Tamara", "Vernet 1853", 24);
+
+ persona1.hablar();
+ persona2.hablar();
+
+ console.log("nombre" in persona2);
+ for (const calle in persona2) {
+     console.log(persona2.calle)
+ }
+
+class producto {
+    constructor (nombre, precio) {
+        this.nombre = nombre.toUpperCase();
+        this.precio = parseFloat(precio);
+        this.vendido = false;
+    }
+    sumaIva() {
+        this.precio = this.precio * 1.21;
+    }
+    vender() {
+        this.vendido = true;
+    }
 }
 
-function despedir() {
-    console.log("chau");
+const producto1 = new producto ("arroz", 90);
+const producto2 = new producto ("fideos", 120);
+
+producto2.sumaIva();
+producto2.vender();
+
+console.log(producto1);*/
+
+
+class autos {
+    constructor (marca, modelo, año, precio) {
+        this.marca = marca.toUpperCase();
+        this.modelo = modelo.toUpperCase();
+        this.año = año;
+        this.precio = parseFloat(precio);
+        this.disponible = true;
+    }
+
+    precioTarjeta() {
+        this.precio = this.precio * 1.2; 
+    }
+    alquilar() {
+        this.disponible = false;
+    }
 }
 
-saludar();
+const auto1 = new autos ("Nissan" , "Versa" , 2015 , 8000);
+const auto2 = new autos ("Chevrolet" , "Onix" , 2018 , 7500);
+const auto3 = new autos ("Chevrolet" , "Corsa" , 2014 , 5500);
+const auto4 = new autos ("Volkswagen" , "Fox" , 2020 , 7000);
+const auto5 = new autos ("Fiat" , "Cronos" , 2021 , 8400);
 
-function saludo(){
-    saludar();
-    despedir();
-}
+console.log(auto1);
+auto1.precioTarjeta();
+auto1.alquilar();
+console.log(auto1);
+console.log(auto4);
+auto4.precioTarjeta();
+auto4.alquilar();
+console.log(auto4);
 
-saludo();
-
-function sumar (valor1, valor2, valor3) {
-    let resultado = valor1 + valor2 + valor3;
-    alert("El resultado es " + resultado);
-}
-
-sumar(parseInt(prompt("Ingresa el primer numero a sumar")), parseInt(prompt("Ingresa el segundo numero a sumar")), parseInt(prompt("ingresa el terer numero a sumar")));*/
-
-// function nombreCompleto() {
-//     let nombre = prompt("Ingresa tu nombre");
-//     let apellido = prompt("Ingresa tu apellido");
-//     return "Tu nombre completo es " + nombre + " " + apellido;
-// }
-
-// alert(nombreCompleto())
-
-// function calculadora (valor1, valor2, operacion) {
-//     switch(operacion) {
-//         case "+":
-//             return valor1 + valor2;
-//             break;
-//         case "-":
-//             return valor1 - valor2;
-//             break;
-//         case "*":
-//             return valor1 * valor2;
-//             break;
-//         case "/":
-//             return valor1 / valor2;
-//             break;
-//         default:
-//             return "Verifica los datos ingresados y vuelve a intentar"
-//             break;                     
-//     }
-// }
-
-// let operacion = calculadora(parseInt(prompt("Ingrese el primer valor")), parseInt(prompt("Ingrese el segundo valor")), prompt("Ingrese "+" para sumar, "-" para restar, "*" para multiplicar, "/" para dividir"))
-// alert("El resultado de la operacion es " + operacion)
-// console.log("El resultado es " + operacion)
-
-// const mensaje = (texto) => { alert(texto) };
-// mensaje("Hola");
-
-alert("SIMULADOR DE PRESTAMOS");
-const interes = (x) => { return x * 0.30 };
-let dineroSolicitado = parseInt(prompt("Ingrese la cantidad de dinero que quiere solicitar"));
-
-let resultado = interes(dineroSolicitado);
-alert("Ok, entonces tendrás que devolver " + (resultado + dineroSolicitado));
-let cuotas = (resultado + dineroSolicitado) / 12;
-
-let proseguir = prompt("Para continuar ingrese SI , de lo contrario ingrese NO");
-
-if(proseguir == "SI") {
-     alert("Excelente, a continuacion le detallaré su pedido");
-     alert("Solicitaste " + dineroSolicitado + " y tendras que devolver " + (resultado + dineroSolicitado) + " en 12 cuotas fijas de " + cuotas)
- } else if (proseguir == "NO") { alert("Ok, puedes volver cuando quieras");
- } else {alert("Verifica que hayas ingresado SI o NO")}
