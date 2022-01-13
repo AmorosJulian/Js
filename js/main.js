@@ -1,5 +1,8 @@
 class autos {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2f048a0f5352608e48a0b2d2c1e4dde005218cf8
     constructor (marca, modelo, año, precio) {
         this.marca = marca.toUpperCase();
         this.modelo = modelo.toUpperCase();
