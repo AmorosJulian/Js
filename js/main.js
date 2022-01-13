@@ -49,40 +49,56 @@ switch(choise) {
             alert(`El precio con tarjeta es ${auto2.precio}`)
         } 
         break;  
-        case "3":
-            let choiseCar3 = prompt(`Chevrolet Corsa 2014. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
-            if((choiseCar3 == 1) || (choiseCar3 == "efectivo")) {
-                alert(`El precio en efectivo es ${auto3.precio}`)
+    case "3":
+        let choiseCar3 = prompt(`Chevrolet Corsa 2014. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
+        if((choiseCar3 == 1) || (choiseCar3 == "efectivo")) {
+            alert(`El precio en efectivo es ${auto3.precio}`)
                     
-            }
-            else if ((choiseCar3 == 2) || (choiseCar3 == "tarjeta")) {
-                auto3.precioTarjeta();
-                alert(`El precio con tarjeta es ${auto3.precio}`)
-            } 
-            break; 
-            case "4":
-            let choiseCar4 = prompt(`Volkswagen Fox 2020. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
-            if((choiseCar4 == 1) || (choiseCar4 == "efectivo")) {
-                alert(`El precio en efectivo es ${auto4.precio}`)
+        }
+        else if ((choiseCar3 == 2) || (choiseCar3 == "tarjeta")) {
+            auto3.precioTarjeta();
+            alert(`El precio con tarjeta es ${auto3.precio}`)
+        } 
+        break; 
+        case "4":
+        let choiseCar4 = prompt(`Volkswagen Fox 2020. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
+        if((choiseCar4 == 1) || (choiseCar4 == "efectivo")) {
+            alert(`El precio en efectivo es ${auto4.precio}`)
                     
-            }
-            else if ((choiseCar4 == 2) || (choiseCar4 == "tarjeta")) {
-                auto4.precioTarjeta();
-                alert(`El precio con tarjeta es ${auto4.precio}`)
-            } 
-            break;  
-            case "5":
-                let choiseCar5 = prompt(`Fiat Cronos 2021. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
-                if((choiseCar5 == 1) || (choiseCar5 == "efectivo")) {
-                    alert(`El precio en efectivo es ${auto5.precio}`)
+        }
+        else if ((choiseCar4 == 2) || (choiseCar4 == "tarjeta")) {
+            auto4.precioTarjeta();
+            alert(`El precio con tarjeta es ${auto4.precio}`)
+        } 
+        break;  
+        case "5":
+            let choiseCar5 = prompt(`Fiat Cronos 2021. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
+            if((choiseCar5 == 1) || (choiseCar5 == "efectivo")) {
+                alert(`El precio en efectivo es ${auto5.precio}`)
                         
-                }
-                else if ((choiseCar5 == 2) || (choiseCar5 == "tarjeta")) {
-                    auto5.precioTarjeta();
-                    alert(`El precio con tarjeta es ${auto5.precio}`)
-                } 
-                break;           
+            }
+            else if ((choiseCar5 == 2) || (choiseCar5 == "tarjeta")) {
+                auto5.precioTarjeta();
+                alert(`El precio con tarjeta es ${auto5.precio}`)
+            } 
+            break;           
 }
+
+// Defino un Array vacio para luego pushear los productos  -- falta organizar en el prompt la posibilidad al usuario de filtrar  --
+const arrAutos = [];
+// Agrego objetos mediante push
+arrAutos.push(auto1, auto2, auto3, auto4, auto5);
+console.log(arrAutos);
+// Iteracion para recorrer todos los objetos y extraer informacion detallada
+console.log("En el array existen las siguientes Marcas:")
+for (const marca of arrAutos) {
+    console.log("Marca: " + marca.marca);
+}
+//  -- falta organizar en el prompt la posibilidad al usuario de filtrar  --
+const menorPrecio = arrAutos.filter( precio => precio.precio <= 7000);
+console.log("Con un presupuesto de 7000 podes alquilar estos vehiculos: ")
+console.log(menorPrecio);
+
 
 
 
