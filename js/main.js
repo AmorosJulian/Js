@@ -1,8 +1,4 @@
 class autos {
-<<<<<<< HEAD
-
-=======
->>>>>>> 2f048a0f5352608e48a0b2d2c1e4dde005218cf8
     constructor (marca, modelo, año, precio) {
         this.marca = marca.toUpperCase();
         this.modelo = modelo.toUpperCase();
@@ -63,7 +59,7 @@ switch(choise) {
             alert(`El precio con tarjeta es ${auto3.precio}`)
         } 
         break; 
-        case "4":
+    case "4":
         let choiseCar4 = prompt(`Volkswagen Fox 2020. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
         if((choiseCar4 == 1) || (choiseCar4 == "efectivo")) {
             alert(`El precio en efectivo es ${auto4.precio}`)
@@ -72,19 +68,19 @@ switch(choise) {
         else if ((choiseCar4 == 2) || (choiseCar4 == "tarjeta")) {
             auto4.precioTarjeta();
             alert(`El precio con tarjeta es ${auto4.precio}`)
-        } 
-        break;  
-        case "5":
-            let choiseCar5 = prompt(`Fiat Cronos 2021. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
-            if((choiseCar5 == 1) || (choiseCar5 == "efectivo")) {
-                alert(`El precio en efectivo es ${auto5.precio}`)
-                        
-            }
-            else if ((choiseCar5 == 2) || (choiseCar5 == "tarjeta")) {
-                auto5.precioTarjeta();
-                alert(`El precio con tarjeta es ${auto5.precio}`)
             } 
-            break;           
+        break;  
+    case "5":
+        let choiseCar5 = prompt(`Fiat Cronos 2021. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
+        if((choiseCar5 == 1) || (choiseCar5 == "efectivo")) {
+            alert(`El precio en efectivo es ${auto5.precio}`)
+                        
+        }
+        else if ((choiseCar5 == 2) || (choiseCar5 == "tarjeta")) {
+            auto5.precioTarjeta();
+            alert(`El precio con tarjeta es ${auto5.precio}`)
+        } 
+        break;           
 }
 
 // Defino un Array vacio para luego pushear los productos  -- falta organizar en el prompt la posibilidad al usuario de filtrar  --
@@ -104,5 +100,20 @@ console.log(menorPrecio);
 
 
 
+let contenedorHtml = document.createElement("div");
+contenedorHtml.innerHTML = "<ul><li>auto1</li><li>auto2</li><li>auto4</li><li>auto4</li><li>auto5</li></ul>"
+console.log(contenedorHtml);
+document.write(contenedorHtml.innerText);
 
+let parrafo = document.getElementsByTagName("p")
+parrafo.innerHTML = "<br>Soy un parrafo de prueba<br>"
+document.write(parrafo.innerHTML);
+
+let nuevoParrafo = document.getElementsByClassName("p2");
+nuevoParrafo.innerHTML = "Este es el nuevo <strong>parrafo</strong><br>";
+document.write(nuevoParrafo.innerHTML);
+
+let listaAutos = document.getElementsByTagName("li");
+console.log(listaAutos)
+listaAutos = "hola"
 
