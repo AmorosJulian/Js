@@ -1,4 +1,4 @@
-class autos {
+/*class autos {
     constructor (marca, modelo, año, precio) {
         this.marca = marca.toUpperCase();
         this.modelo = modelo.toUpperCase();
@@ -114,6 +114,83 @@ nuevoParrafo.innerHTML = "Este es el nuevo <strong>parrafo</strong><br>";
 document.write(nuevoParrafo.innerHTML);
 
 let listaAutos = document.getElementsByTagName("li");
-console.log(listaAutos)
-listaAutos = "hola"
+console.log(listaAutos)*/
+
+// DESAFIO EVENTOS
+
+const element = document.querySelector("#parrafo");
+console.log(element);
+
+element.innerText = "el parrafo de prueba fue modificado"
+
+
+const boton1 = document.getElementById('boton1');
+
+boton1.addEventListener('click' , () => { console.log('boton 1 clickeado') })
+
+const boton2 = document.getElementById('boton2');
+
+boton2.onclick = () => {alert('boton 2 clickeado')}
+
+const functionBoton3 = () => {alert('boton 3 clickeado')}
+
+// formulario de registro
+
+const inputUsuario = document.getElementById("usuario");
+const inputClave = document.querySelector("#clave");
+const form = document.getElementById("form");
+
+inputUsuario.addEventListener('change' , () => {
+    const valor = inputUsuario.value
+
+    if ( valor.length < 6 ) {
+        inputUsuario.classList.add('invalido');
+    } else {
+        inputUsuario.classList.remove('invalido')
+        inputUsuario.classList.add('valido');
+    }
+    
+})
+
+inputClave.addEventListener('change' , () => {
+    const valor = inputClave.value
+
+    if ( valor.length < 6 ) {
+        inputClave.classList.add('invalido');
+    } else {
+        inputClave.classList.remove('invalido')
+        inputClave.classList.add('valido');
+    }
+    
+})
+
+const usuarios = [];
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const usuario = inputUsuario.value
+    const clave = inputClave.value
+
+    if (usuario.length < 6) {
+        alert('El campo de Usuario debe tener al menos 6 caracteres');
+        return
+    }
+    if (clave.length < 6) {
+        alert('El campo de Clave debe tener al menos 6 caracteres');
+        return
+    }
+
+    const usuarioCreado = {
+        usuario: usuario,
+        clave: clave
+    }
+
+    usuarios.push(usuarioCreado);
+    alert(`El usuario ${usuarioCreado.usuario} se registro correctamente! Bienvenido a RENT A CAR`)
+    console.log(`Usuario: ${usuarioCreado.usuario} // Clave: ${usuarioCreado.clave}`)
+    form.reset();
+})
+
+
 
