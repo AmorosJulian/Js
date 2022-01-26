@@ -1,140 +1,49 @@
-/*class autos {
-    constructor (marca, modelo, año, precio) {
-        this.marca = marca.toUpperCase();
-        this.modelo = modelo.toUpperCase();
-        this.año = año;
-        this.precio = parseFloat(precio);
-        this.disponible = true;
-    }
+const arrayAutos = [
+        {id: 1 , marca: 'Nissan' , modelo: 'Versa' , año: 2020 , precioDia: 9300 , img: './src/images/nissan.jpeg'},
+        {id: 2 , marca: 'Chevrolet' , modelo: 'Onix' , año: 2018 , precioDia: 7500 , img: './src/images/onix.jpg'},
+        {id: 3 , marca: 'Chevrolet' , modelo: 'Corsa' , año: 2014 , precioDia: 5500 , img: './src/images/corsa.jpg'},
+        {id: 4 , marca: 'Volkswagen' , modelo: 'Fox' , año: 2020 , precioDia: 7900 , img: './src/images/fox.jpg'},
+        {id: 5 , marca: 'Fiat' , modelo: 'Cronos' , año: 2021 , precioDia: 8400 , img: './src/images/cronos.jpg'},
+        {id: 6 , marca: 'Volkswagen' , modelo: 'Vento' , año: 2010 , precioDia: 8100 , img: './src/images/vento.jpeg'},
+        {id: 7 , marca: 'Renault' , modelo: 'Sandero' , año: 2021 , precioDia: 8250 , img: './src/images/sandero.jpg'},
+        {id: 8 , marca: 'Honda' , modelo: 'City' , año: 2017 , precioDia: 8000 , img: './src/images/city.jpg'},
+        {id: 9 , marca: 'Toyota' , modelo: 'Corolla' , año: 2019 , precioDia: 8600 , img: './src/images/corolla.jpg'},
+        {id: 10 , marca: 'Ford' , modelo: 'Focus' , año: 2020 , precioDia: 9000 , img: './src/images/focus.jpg'},
+        {id: 11 , marca: 'Peugeot' , modelo: '208' , año: 2019 , precioDia: 8300 , img: './src/images/208.jpeg'},
+        {id: 12 , marca: 'Peugeot' , modelo: '2008' , año: 2019 , precioDia: 9100 , img: './src/images/2008.jpg'}
+    ];
 
-    precioTarjeta() {
-        this.precio = this.precio * 1.2; 
-    }
-    alquilar() {
-        this.disponible = false;
-    }
-}
+    const productos = document.getElementById('productos');
 
-//Defino nuevos tipos de auto
-const auto1 = new autos ("Nissan" , "Versa" , 2015 , 8000);
-const auto2 = new autos ("Chevrolet" , "Onix" , 2018 , 7500);
-const auto3 = new autos ("Chevrolet" , "Corsa" , 2014 , 5500);
-const auto4 = new autos ("Volkswagen" , "Fox" , 2020 , 7000);
-const auto5 = new autos ("Fiat" , "Cronos" , 2021 , 8400);
+    arrayAutos.forEach((prod) => {
+        const article = document.createElement('article');
+        article.classList.add('col-4')
 
-alert(`Bienvenido a RENT-A-CAR`);
-let choise = prompt(`Elija uno de nuestros autos disponibles:  \n 1- Nissan Versa 2015 \n 2- Chevrolet Onix 2018 \n 3- Chevrolet Corsa 2014 \n 4- Volkswagen Fox 2020 \n 5- Fiat Cronos 2021 `);
+        article.innerHTML = `
+        <div class="card" style="width: 18rem;">
+            <img src=${prod.img} class="card-img-top" alt="">
+            <div class="card-body">
+            <h5 class="card-title">${prod.marca} ${prod.modelo}</h5>
+            <p>Año: ${prod.año}</p>
+            <p>Precio x dia: $${prod.precioDia}</p>
+            <p>Kilometros: Libre</p>
+            <p>Id de producto: #0000${prod.id}</p>
+            <p class="card-text">Unica unidad disponible</p>
+            <a href="#" class="btn btn-primary">Reservar</a>
+            </div>
+        </div>
+        `
+        productos.append(article);
+    })
+    const boton = document.createElement('button')
+    boton.innerHTML = `
+        <button>Boton</button>
+    `
+    boton.addEventListener('click' , () => {
+        alert('Para reservar un vehiculo, primero debe registrarse!');
+    })
 
-switch(choise) {
-    case "1":
-        let choiseCar1 = prompt(`Nissa Versa 2015. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
-        if((choiseCar1 == 1) || (choiseCar1 == "efectivo")) {
-            alert(`El precio en efectivo es ${auto1.precio}`)
-            
-        }
-        else if ((choiseCar1 == 2) || (choiseCar1 == "tarjeta")) {
-            auto1.precioTarjeta();
-            alert(`El precio con tarjeta es ${auto1.precio}`)
-        } 
-        break;
-    case "2":
-        let choiseCar2 = prompt(`Chevrolet Onix 2018. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
-        if((choiseCar2 == 1) || (choiseCar2 == "efectivo")) {
-            alert(`El precio en efectivo es ${auto2.precio}`)
-                
-        }
-        else if ((choiseCar2 == 2) || (choiseCar2 == "tarjeta")) {
-            auto2.precioTarjeta();
-            alert(`El precio con tarjeta es ${auto2.precio}`)
-        } 
-        break;  
-    case "3":
-        let choiseCar3 = prompt(`Chevrolet Corsa 2014. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
-        if((choiseCar3 == 1) || (choiseCar3 == "efectivo")) {
-            alert(`El precio en efectivo es ${auto3.precio}`)
-                    
-        }
-        else if ((choiseCar3 == 2) || (choiseCar3 == "tarjeta")) {
-            auto3.precioTarjeta();
-            alert(`El precio con tarjeta es ${auto3.precio}`)
-        } 
-        break; 
-    case "4":
-        let choiseCar4 = prompt(`Volkswagen Fox 2020. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
-        if((choiseCar4 == 1) || (choiseCar4 == "efectivo")) {
-            alert(`El precio en efectivo es ${auto4.precio}`)
-                    
-        }
-        else if ((choiseCar4 == 2) || (choiseCar4 == "tarjeta")) {
-            auto4.precioTarjeta();
-            alert(`El precio con tarjeta es ${auto4.precio}`)
-            } 
-        break;  
-    case "5":
-        let choiseCar5 = prompt(`Fiat Cronos 2021. \n Desea ver precio en : \n 1- EFECTIVO \n 2- TARJETA`)
-        if((choiseCar5 == 1) || (choiseCar5 == "efectivo")) {
-            alert(`El precio en efectivo es ${auto5.precio}`)
-                        
-        }
-        else if ((choiseCar5 == 2) || (choiseCar5 == "tarjeta")) {
-            auto5.precioTarjeta();
-            alert(`El precio con tarjeta es ${auto5.precio}`)
-        } 
-        break;           
-}
-
-// Defino un Array vacio para luego pushear los productos  -- falta organizar en el prompt la posibilidad al usuario de filtrar  --
-const arrAutos = [];
-// Agrego objetos mediante push
-arrAutos.push(auto1, auto2, auto3, auto4, auto5);
-console.log(arrAutos);
-// Iteracion para recorrer todos los objetos y extraer informacion detallada
-console.log("En el array existen las siguientes Marcas:")
-for (const marca of arrAutos) {
-    console.log("Marca: " + marca.marca);
-}
-//  -- falta organizar en el prompt la posibilidad al usuario de filtrar  --
-const menorPrecio = arrAutos.filter( precio => precio.precio <= 7000);
-console.log("Con un presupuesto de 7000 podes alquilar estos vehiculos: ")
-console.log(menorPrecio);
-
-
-
-let contenedorHtml = document.createElement("div");
-contenedorHtml.innerHTML = "<ul><li>auto1</li><li>auto2</li><li>auto4</li><li>auto4</li><li>auto5</li></ul>"
-console.log(contenedorHtml);
-document.write(contenedorHtml.innerText);
-
-let parrafo = document.getElementsByTagName("p")
-parrafo.innerHTML = "<br>Soy un parrafo de prueba<br>"
-document.write(parrafo.innerHTML);
-
-let nuevoParrafo = document.getElementsByClassName("p2");
-nuevoParrafo.innerHTML = "Este es el nuevo <strong>parrafo</strong><br>";
-document.write(nuevoParrafo.innerHTML);
-
-let listaAutos = document.getElementsByTagName("li");
-console.log(listaAutos)*/
-
-// DESAFIO EVENTOS
-
-const element = document.querySelector("#parrafo");
-console.log(element);
-
-element.innerText = "el parrafo de prueba fue modificado"
-
-
-const boton1 = document.getElementById('boton1');
-
-boton1.addEventListener('click' , () => { console.log('boton 1 clickeado') })
-
-const boton2 = document.getElementById('boton2');
-
-boton2.onclick = () => {alert('boton 2 clickeado')}
-
-const functionBoton3 = () => {alert('boton 3 clickeado')}
-
-// formulario de registro
+// formulario de registro para reservar vehiculo
 
 const inputUsuario = document.getElementById("usuario");
 const inputClave = document.querySelector("#clave");
@@ -187,10 +96,10 @@ form.addEventListener('submit', (e) => {
     }
 
     usuarios.push(usuarioCreado);
-    alert(`El usuario ${usuarioCreado.usuario} se registro correctamente! Bienvenido a RENT A CAR`)
-    console.log(`Usuario: ${usuarioCreado.usuario} // Clave: ${usuarioCreado.clave}`)
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    alert(`El usuario ${usuarioCreado.usuario} se registro correctamente! Bienvenido a RENT A CAR`);
+    console.log(`Usuario: ${usuarioCreado.usuario} // Clave: ${usuarioCreado.clave}`);
     form.reset();
 })
 
-
-
+   
