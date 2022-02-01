@@ -35,71 +35,71 @@ const arrayAutos = [
         `
         productos.append(article);
     })
-    const boton = document.createElement('button')
-    boton.innerHTML = `
-        <button>Boton</button>
-    `
-    boton.addEventListener('click' , () => {
-        alert('Para reservar un vehiculo, primero debe registrarse!');
+
+// formulario de registro para reservas
+
+const inputUsuario = document.querySelector('#usuario');
+const inputClave = document.querySelector('#clave');
+const form = document.querySelector('#form');
+
+//  ----- EVENTOS CON JQUERY -----
+
+$(document).ready(function () {
+
+    $('#usuario').change(function () {
+        const valor = inputUsuario.value
+
+    if ( valor.length < 6 ) {
+        $('#usuario').addClass('invalido');
+    } else {
+        $('#usuario').removeClass('invalido');
+        $('#usuario').addClass('valido');
+    }})
+    
+})
+
+$(document).ready( function () {
+    $('#clave').change(function () {
+        const valor = inputClave.value
+
+        if( valor.length < 6) {
+            $('#clave').addClass('invalido');
+        } else {
+            $('#clave').removeClass('invalido');
+            $('#clave').addClass('valido');
+        }
     })
-
-// formulario de registro para reservar vehiculo
-
-const inputUsuario = document.getElementById("usuario");
-const inputClave = document.querySelector("#clave");
-const form = document.getElementById("form");
-
-inputUsuario.addEventListener('change' , () => {
-    const valor = inputUsuario.value
-
-    if ( valor.length < 6 ) {
-        inputUsuario.classList.add('invalido');
-    } else {
-        inputUsuario.classList.remove('invalido')
-        inputUsuario.classList.add('valido');
-    }
-    
 })
 
-inputClave.addEventListener('change' , () => {
-    const valor = inputClave.value
 
-    if ( valor.length < 6 ) {
-        inputClave.classList.add('invalido');
-    } else {
-        inputClave.classList.remove('invalido')
-        inputClave.classList.add('valido');
-    }
-    
-})
 
 const usuarios = [];
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
+$(document).ready(function (){
+    $('#form').submit(function (e) {
+        e.preventDefault()
 
-    const usuario = inputUsuario.value
-    const clave = inputClave.value
+        const usuario = inputUsuario.value
+        const clave = inputClave.value
 
-    if (usuario.length < 6) {
-        alert('El campo de Usuario debe tener al menos 6 caracteres');
-        return
-    }
-    if (clave.length < 6) {
-        alert('El campo de Clave debe tener al menos 6 caracteres');
-        return
-    }
-
-    const usuarioCreado = {
-        usuario: usuario,
-        clave: clave
-    }
-
-    usuarios.push(usuarioCreado);
-    localStorage.setItem('usuarios', JSON.stringify(usuarios));
-    alert(`El usuario ${usuarioCreado.usuario} se registro correctamente! Bienvenido a RENT A CAR`);
-    console.log(`Usuario: ${usuarioCreado.usuario} // Clave: ${usuarioCreado.clave}`);
-    form.reset();
+        if (usuario.length < 6) {
+            alert('El campo de Usuario debe tener al menos 6 caracteres');
+            return
+        }
+        if (clave.length < 6) {
+            alert('El campo de Clave debe tener al menos 6 caracteres');
+            return
+        }
+    
+        const usuarioCreado = {
+            usuario: usuario,
+            clave: clave
+        }
+    
+        usuarios.push(usuarioCreado);
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+        alert(`El usuario ${usuarioCreado.usuario} se registro correctamente! Bienvenido a RENT A CAR`);
+        console.log(`Usuario: ${usuarioCreado.usuario} // Clave: ${usuarioCreado.clave}`);
+        form.reset();
+    })
 })
-
-   
